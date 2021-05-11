@@ -34,23 +34,24 @@
 			</div>
             <div class="related">
                 <div class="related-products clearfix">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">quantity</th>
+                </tr>
+              </thead>
+              <tbody>
+            {% for bask in basket %}
 
-            {% for product in products %}
+                <tr>
+                  <td >{{ bask.product }}</td>
+                  <td>{{ bask.quantity }}</td>
 
-                    <div class="block">
-						<a href="{% url 'basket:add' product.pk %}">
-                            <img src="/media/{{ product.image }}" width="370" alt="">
-							<div class="text">
-								<img src="{% static 'img/icon-hover.png' %}" alt="img">
-								<h4>{{product.name}}</h4>
-                                <p>{{product.short_desc}}</p>
-							</div>
-						</a>
-					</div>
-
-
+                </tr>
             {% endfor %}
-
+              </tbody>
+            </table>
                       </div>
             </div>
 			<div class="related">
@@ -85,7 +86,7 @@
 
 		<div class="clr"></div>
 
-	</div>	
+	</div>
 
 	<div class="footer">
         <div class="clearfix">
@@ -112,5 +113,5 @@
             <a href="#" class="social4"></a>
         </div>
         <p class="small">Положения &amp; Условия  /  Конфиденциальность &amp; Cookies</p>
-    </div>	
+    </div>
 {% endblock %}
