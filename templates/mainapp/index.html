@@ -1,28 +1,15 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Магазин</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'style.css'%}">
-	<link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
-</head>
-<body>
+{% block title %}{{ titles|title }}{% endblock %}
+{% block content %}
 	<div class="container">
 		<div class="slider">
-			<div class="header clearfix">
-				<a href="index.html" class="logo"></a>
-				<ul class="menu">
-					<li><a href="/" class="active">домой</a></li>
-					<li><a href="/products">продукты</a></li>
-					<li><a href="/contact">контакты</a></li>
-				</ul>
-				<a href="#" class="search"></a>
-			</div>
+			  {% include 'mainapp/menu.html' %}
 			<div class="text-slider">
-				<h3 class="green">тенденции</h3>
+				<h3 class="green">  Текущая дата {% now "SHORT_DATETIME_FORMAT" %}</h3>
 				<h3 class="big"> удобные стулья</h3>
 				<p>Новый уровень комфорта. Отличные характеристики.</p>
+                <p>Текущая дата {% now "SHORT_DATETIME_FORMAT" %}</p>
 				<a href="#" class="button-order">заказать <img src="{% static 'img/arrow.png ' %}" alt=""></a>
 			</div>	
 			<div class="navi">
@@ -89,6 +76,4 @@
         </div>
         <p class="small">Положения &amp; Условия  /  Конфиденциальность &amp; Cookies</p>
     </div>	
-	
-</body>
-</html>
+{% endblock %}

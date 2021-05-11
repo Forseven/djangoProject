@@ -1,26 +1,10 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Каталог</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'style.css'%}">
-	<link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
-</head>
-<body>
+{% block title %}{{ titles|title }}{% endblock %}
+{% block content %}
 	<div class="container">
 		<div class="hero-white">
-			<div class="header clearfix">
-				<a href="index.html" class="logo"></a>
-				<ul class="menu">
-					<li><a href="/">домой</a></li>
-					<li><a href="/products" class="active">продукты</a></li>
-					<li><a href="/contact">контакты</a></li>
-
-				</ul>
-				<a href="#" class="search"></a>
-                <a href="#" class="basket"></a>
-			</div>
+			  {% include 'mainapp/menu.html' %}
 		</div>
 
 		<div class="details">
@@ -144,6 +128,4 @@
         </div>
         <p class="small">Положения &amp; Условия  /  Конфиденциальность &amp; Cookies</p>
     </div>	
-
-</body>
-</html>
+{% endblock %}
