@@ -1,8 +1,8 @@
 from django.shortcuts import render
-
+from .models import Product,ProductCategory
 links_menu = [
-        {'href': 'index', 'name': 'главная страница'},
-        {'href': 'products', 'name': 'продукты'},
+        {'href': 'main', 'name': 'главная страница'},
+        {'href': 'products:index', 'name': 'Продукция'},
         {'href': 'contact', 'name': 'контакты'},
 
 ]
@@ -10,20 +10,40 @@ same_products = [
 
 ]
 
-def index(request):
+def main(request):
     content = {
         'titles': 'главная страница',
         'links_menu': links_menu
     }
     return render(request, 'mainapp/index.html', context=content)
 
-def products(request):
+def index(request):
+
+
     content = {
         'titles': 'Продукты',
         'links_menu': links_menu,
+        'category_menu': ProductCategory.objects.all(),
         'same_products': same_products
     }
     return render(request, 'mainapp/products.html', context=content)
+
+
+
+def products(request, pk=None):
+    if (pk != None):
+        products = Product.objects.filter(category_id=pk).all()
+    else:
+        products = Product.objects.all()
+
+    content = {
+        'titles': 'Продукты',
+        'links_menu': links_menu,
+        'category_menu': ProductCategory.objects.all(),
+        'products': products
+    }
+    return render(request, 'mainapp/products.html', context=content)
+
 
 
 def contact(request):
