@@ -25,4 +25,5 @@ urlpatterns = [
     path('products/', include('mainapp.urls', namespace='products')),
     path('contact/', mainapp.contact,name='contact'),
     path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
+    path('auth/', include('authnapp.urls', namespace='auth')),
 ]

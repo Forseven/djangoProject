@@ -1,0 +1,25 @@
+{% extends 'authnapp/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <form class="form-signin" action="{% url 'auth:login' %}" method="post">
+        {% csrf_token %}
+
+        <br>
+        <div class="form-label-group">
+        {{ login_form.username }}
+        <label for="inputEmail">Имя пользователя</label>
+      </div>
+         <div class="form-label-group">
+       {{ login_form.password }}
+        <label for="inputPassword">Пароль</label>
+      </div>
+     <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+    </form>
+    <button class="btn btn-lg btn-primary btn-block "  style="width: 400px;margin-left: 360px">
+        <a href="{% url 'auth:register' %}" class="" style="color: white">
+            Зарегистрироваться
+        </a>
+    </button>
+{% endblock %}
