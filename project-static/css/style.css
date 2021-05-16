@@ -7,7 +7,9 @@
 body {
 	font-family: 'Montserrat', sans-serif;
 }
-
+.not_active{
+text-decoration: line-through;
+}
 html, body {
 	height: 100%;
 }
