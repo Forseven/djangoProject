@@ -82,9 +82,10 @@ html, body {
 }
 .basket {
 	display: block;
-	width: 23px;
+
 	height: 23px;	
-	background-image: url(img/shopping-basket-solid.svg);
+	background-image: url(img/shopping-basket-solid.svg) ;
+	background-repeat: no-repeat;
 	position: absolute;
 	top: 63px;
 	left: 1210px;

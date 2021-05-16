@@ -1,7 +1,7 @@
 
 {% block menu %}
 	<div class="header clearfix">
-				<a href="index.html" class="logo"></a>
+				<a href="{% url 'main' %}" class="logo"></a>
 				<ul class="menu">
 
                 {% for link in links_menu %}
@@ -33,7 +33,10 @@
                 <a href="{% url 'basket:view' %}" class="basket">
 
                     <span style="color: red;font-weight: bold; margin-left: 30px;">
-                        {% if basket %} {{ basket|length }} {% endif %}
+                         {% if basket %}
+                              {{ basket.0.total_cost|floatformat:0 }} &#8381;
+                              ({{ basket.0.total_quantity }} шт)
+                         {% endif %}
                     </span>
                 </a>
 
