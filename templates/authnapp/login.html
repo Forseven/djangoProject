@@ -5,7 +5,9 @@
 {% block content %}
     <form class="form-signin" action="{% url 'auth:login' %}" method="post">
         {% csrf_token %}
-
+    {% if next %}
+        <input type="hidden" name="next" value="{{ next }}">
+    {% endif %}
         <br>
         <div class="form-label-group">
         {{ login_form.username }}

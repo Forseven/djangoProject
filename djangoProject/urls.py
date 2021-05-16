@@ -27,4 +27,5 @@ urlpatterns = [
     path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
     path('auth/', include('authnapp.urls', namespace='auth')),
     path('basket/', include('basketapp.urls', namespace='basket')),
+
 ]
